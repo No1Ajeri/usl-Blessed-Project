@@ -1,0 +1,45 @@
+<p>user-table works!</p>
+
+<h1 style="text-indent: 127mm;">USL CUSTOMER INFO</h1>
+
+<table class="table table-bordered table-dark">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">State of Origin</th>
+            <th scope="col">Age</th>
+            <th scope="col">Created At</th>
+            <th scope="col">Active</th>
+            <th scope="col">Button clicks</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.stateOfOrigin}}</td>
+            <td>{{user.age}}</td>
+            <td>{{user.createdAt}}</td>
+            <td>{{user.active}}</td>        
+            
+            <button type="submit" class="btn btn-success" style="color: blue; border-color: blue;">Info</button>
+            <button class="btn btn-success" routerLink="" style="color: blue; border-color: blue;" > edit</button>
+            <button type="submit" class="btn btn-success" (click)="delete(user.id)" style="color: blue; border-color: blue;" >Delete</button>
+            <td></td>
+        </tr>
+
+
+
+
+    </tbody>
+</table>
+<br>
+
+
+
+
+
+<!--<button class="btn btn-success" routerLink="user-form"> route to user-form</button>-->
