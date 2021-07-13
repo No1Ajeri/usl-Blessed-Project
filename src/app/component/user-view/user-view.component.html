@@ -17,15 +17,16 @@
     </thead>
     <tbody>
         <tr *ngFor="let user of users; let i = index">
-            <th scope="row">{{i + 1}}</th>
-            <td>{{user.firstName}}</td>
+            <th scope="row">{{i + 1}}</th> <!--Logical operation to index instead from i = 0 but to i = i + 1 meaning from id i=1 to i=9-->
+            <!---Values declared below here are binded with the {{}} operator-->
+            <td>{{user.firstName}}</td> 
             <td>{{user.lastName}}</td>
             <td>{{user.stateOfOrigin}}</td>
             <td>{{user.age}}</td>
             <td>{{user.createdAt}}</td>
             <td>{{user.active}}</td>        
             
-            <button type="submit" class="btn btn-success" style="color: blue; border-color: blue;">Info</button>
+            <button type="submit" class="btn btn-success" routerLink=""  style="color: blue; border-color: blue;">Info</button> <!--Router Link used to Access pages-->
             <button class="btn btn-success" routerLink="" style="color: blue; border-color: blue;" > edit</button>
             <button type="submit" class="btn btn-success" (click)="delete(user.id)" style="color: blue; border-color: blue;" >Delete</button>
             <td></td>

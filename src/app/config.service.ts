@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from './user';
-import {map} from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,27 +12,27 @@ import { Observable } from 'rxjs';
 
 export class ConfigService {
 
-  url:string = 'https://usl2021.herokuapp.com'; //API JSON data webLink
+  url: string = 'https://usl2021.herokuapp.com'; //API JSON data webLink
   constructor(private http: HttpClient) { }
 
-  getAllUsers(){
+  getAllUsers() {
     return this.http.get<User[]>(this.url + '/users'); //Major operation to get data from the API
   }
-  createAllUsers(){ 
-    //return this.http.post<User>(this.url + '/users');
+  createAllUsers(user: User) {
+    return this.http.post<User>(this.url + '/user', user);
+
   }
 
-  updateAllUsers(){
+  updateAllUsers(user: User) {
+    return this.http.put<User>(this.url + '/user', user);
   }
 
-  delete(data:any) {
-    return this.http.delete<any>(`${this.url}/${data}`)
-    .pipe(map((res:any)=> {
-      return res;
-    }))
+  delete(id: number) {
+    // return this.http.delete<any>(`${this.url}/${id}`)
+    return this.http.delete<any>(this.url + '/user/' + id);
+
   }
-  findAllUsers(){
-  }
+
 
 
 }
